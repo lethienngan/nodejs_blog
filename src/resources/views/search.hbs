@@ -1,0 +1,22 @@
+<h1>SEARCH BAR</h1>
+<div class="mt-4">
+    <form method="POST">
+
+        <div class="mb-3">
+            <label for="searchInput" class="form-label">Tìm kiếm</label>
+            {{!-- <input type="text" name="fullname" id="">
+            <input type="text" name="age" id=""> --}}
+            <input type="text" class="form-control" id="searchInput" name="q" placeholder="Nhập vào đây...">
+        </div>
+
+        <div class="mb-3">
+            <label for="genderInput" class="form-label">Giới tính</label>
+            <select name="gender" id="genderInput" class="form-select">
+                <option value="">--Chọn giới tính--</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
