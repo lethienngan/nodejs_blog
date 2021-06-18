@@ -1,10 +1,12 @@
-const path = require('path')
+//Call Library
 const express = require('express');
-
-const morgan = require('morgan');
-const handlebars = require('express-handlebars');
 const app = express();
+const morgan = require('morgan');
 const port = 3000;
+const path = require('path')
+const handlebars = require('express-handlebars');
+const route = require('./routes');
+
 
 //Access Public file
 app.use(express.static(path.join(__dirname, 'public')))
@@ -21,22 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-
-
-// route
-app.get('/', (req, res) => {
-    res.render('home');
-})
-app.get('/news', (req, res) => {
-    res.render('news');
-})
-app.get('/search', (req, res) => {
-    res.render('search');
-})
-app.post('/search', (req, res) => {
-    console.log('Typeof body: ', typeof req.body)
-    console.log('Get body: ', req.body)
-    res.sendStatus(200);
-})
+// routing init
+route(app);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
