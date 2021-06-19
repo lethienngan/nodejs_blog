@@ -6,7 +6,10 @@ const port = 3000;
 const path = require('path')
 const handlebars = require('express-handlebars');
 const route = require('./routes');
+const dataBase = require('./config/db');
 
+//Connect to DB
+dataBase.connect();
 
 //Access Public file
 app.use(express.static(path.join(__dirname, 'public')))
@@ -21,6 +24,8 @@ app.set('views', path.join(__dirname, 'resources/views'));
 // Body-parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 
 
 // routing init
