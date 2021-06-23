@@ -31,4 +31,4 @@ app.use(express.json());
 // routing init
 route(app);
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`App listening at http://localhost:${port}`))

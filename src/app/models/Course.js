@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const Scheme = mongoose.Schema
+const Schema = mongoose.Schema
 
-const Course = new Scheme({
+const Course = new Schema({
     name: { type: String, default: '', maxlength: 255 },
     description: { type: String, default: '', maxlength: 255600 },
     image: { type: String, default: '', maxlength: 255 },

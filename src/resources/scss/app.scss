@@ -1,2 +1,16 @@
 @import 'variables';
 
+.card-course-item {
+    margin-top: 20px;
+    position  : relative;
+    height    : 400px;
+}
+
+.card-body-position {
+    position: absolute;
+    bottom  : 0;
+}
+
+a {
+    text-decoration: none;
+}
