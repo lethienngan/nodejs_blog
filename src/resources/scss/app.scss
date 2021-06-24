@@ -3,12 +3,18 @@
 .card-course-item {
     margin-top: 20px;
     position  : relative;
-    height    : 400px;
+    height    : 500px;
 }
 
 .card-body-position {
-    position: absolute;
+    // position: absolute;
     bottom  : 0;
+    // height :100%;
+}
+
+.btn-position {
+    position: absolute;
+    bottom: 50px;
 }
 
 a {

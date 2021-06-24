@@ -2,15 +2,16 @@
 <div class="mt-4">
     <div class="row">
         {{#each course}}
-        <div class="col-sm-6 col-lg-4" style="max-height: 400px; margin-top: 20px">
+        <div class="col-sm-6 col-lg-4" style=" margin-top: 10px; margin-bottom: 10px">
             <div class="card card-course-item">
-                <a href="/courses/{{this.slug}}"><img src="{{this.image}}" class="card-img"></a>
+                <a href="/courses/{{this.slug}}"><img src="{{this.image}}" class="card-img" style="height: 180px"></a>
+                
                 <div class="card-body card-body-position">
                     <a href="/courses/{{this.slug}}">
                         <h5 class="card-title">{{this.name}}</h5>
                     </a>
                     <p class="card-text">{{this.description}}</p>
-                    <a href="/courses/{{this.slug}}" class="btn btn-primary">Truy cập khóa học</a>
+                    <a href="/courses/{{this.slug}}" class="btn btn-primary btn-position">Truy cập khóa học</a>
                 </div>
             </div>
         </div>
