@@ -10,7 +10,6 @@ const dataBase = require('./config/db');
 
 //Connect to DB
 dataBase.connect();
-
 //Access Public file
 app.use(express.static(path.join(__dirname, 'public')))
 
