@@ -21,11 +21,11 @@ class CoursesController {
     // [POST] /courses/store
     store(req, res, next) {
         //parse req.body to object model - formData  
-        const formData_NEW = new Course(req.body);
+        const formData = new Course(req.body);
 
         //save() to DB & redirect to home page
-        formData_NEW.save()
-            .then(() => res.redirect('/'))
+        formData.save()
+            .then(() => res.redirect('/me/stored/courses'))
             .catch(err => {
                 console.log(err);
             })
@@ -45,11 +45,24 @@ class CoursesController {
             .catch(next);
     }
 
-    //[DELETE] /courses/:id/
-    delete(req, res, next) {
+    //[DELETE] /courses/:id/softDelete
+    softDelete(req, res, next) {
         Course.delete({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next);
+    }
+
+    //[DELETE] /courses/:id/hardDelete
+    hardDelete(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+    //[PATCH] /courses/:id/restore
+    restore(req, res, next) {
+        Course.restore({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next)
     }
 }
 
