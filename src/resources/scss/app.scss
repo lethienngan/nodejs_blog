@@ -1,5 +1,12 @@
 @import 'variables';
 
+.user-avatar {
+    width        : 50px;
+    height       : 50px;
+    border-radius: 50%;
+    margin-right : 10px;
+}
+
 .card-course-item {
     margin-top: 20px;
     position  : relative;
@@ -8,13 +15,13 @@
 
 .card-body-position {
     // position: absolute;
-    bottom  : 0;
+    bottom    : 0;
     // height :100%;
 }
 
 .btn-position {
     position: absolute;
-    bottom: 50px;
+    bottom  : 50px;
 }
 
 a {

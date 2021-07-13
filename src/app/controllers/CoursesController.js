@@ -21,15 +21,35 @@ class CoursesController {
     // [POST] /courses/store
     store(req, res, next) {
         //parse req.body to object model - formData  
-        const formData = new Course(req.body);
+        const formData_NEW = new Course(req.body);
 
         //save() to DB & redirect to home page
-        formData.save()
+        formData_NEW.save()
             .then(() => res.redirect('/'))
             .catch(err => {
                 console.log(err);
             })
-       
+
+    }
+    // [GET] /courses/:id/edit
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+            .then(course => res.render('./courses/edit', { course: mongooseToObject(course) }))
+            .catch(next);
+
+    }
+    // [PUT] /courses/:id
+    update(req, res, next) {
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+    }
+
+    //[DELETE] /courses/:id/
+    delete(req, res, next) {
+        Course.delete({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
     }
 }
 
