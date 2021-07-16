@@ -14,16 +14,14 @@ dataBase.connect();
 // cd Express to Public folder - to get img & css
 app.use(express.static(path.join(__dirname, '/public/')))
 
-// Midleware monitor - HTTP logger
+// Middleware monitor - HTTP logger
 app.use(morgan('combined'));
 // Middleware Method-override
 app.use(methodOverride('_method'));
 //Template Engine - Rendering engine setup - Express Handlebars
 app.engine('.hbs', handlebars({
     extname: '.hbs',
-    helpers: {
-        sum: (a, b) => a + b
-    }
+    helpers: { sum: (a, b) => a + b }
 })
 );
 app.set('view engine', '.hbs');
