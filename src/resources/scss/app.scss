@@ -1,29 +1,32 @@
-@import 'variables';
+@import "variables";
 
 .user-avatar {
-    width        : 50px;
-    height       : 50px;
-    border-radius: 50%;
-    margin-right : 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 20%;
+  margin-right: 10px;
 }
 
 .card-course-item {
-    margin-top: 20px;
-    position  : relative;
-    height    : 500px;
+  margin-top: 20px;
+  position: relative;
+  height: 500px;
 }
 
 .card-body-position {
-    // position: absolute;
-    bottom    : 0;
-    // height :100%;
+  // position: absolute;
+  bottom: 0;
+  // height :100%;
 }
 
 .btn-position {
-    position: absolute;
-    bottom  : 50px;
+  position: absolute;
+  bottom: 50px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+.select-options {
+  width: 100px;
 }

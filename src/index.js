@@ -1,4 +1,4 @@
-// init framework - library
+// call framework - library
 const express = require('express');
 const methodOverride = require('method-override')
 const app = express();
@@ -11,7 +11,7 @@ const dataBase = require('./config/db');
 
 // Connect to DB
 dataBase.connect();
-// cd Express to Public folder - to get img & css
+// cd Express to access Public folder - to get img & css
 app.use(express.static(path.join(__dirname, '/public/')))
 
 // Middleware monitor - HTTP logger
@@ -31,10 +31,6 @@ app.set('views', path.join(__dirname, 'resources/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
-
 // routing init
 route(app);
-
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
