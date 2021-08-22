@@ -8,7 +8,7 @@ const path = require('path')
 const handlebars = require('express-handlebars');
 const route = require('./routes');
 const dataBase = require('./config/db');
-const SortMiddleware = require('./app/middleware/sortMiddleware_course');
+const SortMiddleware = require('./app/middleware/sortMiddleware');
 
 // Connect to DB
 dataBase.connect();
