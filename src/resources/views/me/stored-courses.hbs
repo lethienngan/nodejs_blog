@@ -7,11 +7,11 @@
         <input class="form-check-input" type="checkbox" value="" id="checkbox-all" />
         <label class="form-check-label" for="checkbox-all"> Chọn tất cả </label>
       </div>
-      <select class="form-select form-control-sm w-50 p-1" name="action" required="true">
+      <select class="form-select form-control-sm w-50 p-1" name="action" required="required">
         <option value="">-- Chọn hành động --</option>
         <option value="delete">Xóa</option>
       </select>
-      <button class="btn btn-primary btn-sm disabled">Áp dụng</button>
+      <button class="btn btn-primary btn-sm" disabled="disabled">Áp dụng</button>
     </div>
   </div>
 
@@ -20,9 +20,18 @@
       <tr>
         <th scope="col"></th>
         <th scope="col">#</th>
-        <th scope="col">Tên khóa học</th>
-        <th scope="col">Thời gian tạo</th>
-        <th scope="col">Thời gian cập nhật</th>
+        <th scope="col">
+          Tên khóa học
+          {{{sortable 'name' _sort}}}
+        </th>
+        <th scope="col">
+          Thời gian tạo
+          {{{sortable 'createdAt' _sort}}}
+          </th>
+        <th scope="col">
+          Thời gian cập nhật
+          {{{sortable 'updatedAt' _sort}}}
+          </th>
         <th scope="col" colspan="2">Thao tác</th>
       </tr>
     </thead>
@@ -101,7 +110,7 @@
       deleteForm.submit();
     }
 
-    // When Checkbox all is clicked
+    // When Checkbox-all is clicked
     checkboxAll.change(function (event) {
       var isChecked = $(this).prop('checked')
       courseItemCheckbox.prop('checked', isChecked)
@@ -120,9 +129,9 @@
     function renderCheckAllSubmitBtn() {
       var checkedCount = $('input[name="courseIDs[]"]:checked').length
       if (checkedCount > 0) {
-        $('.btn-sm').removeClass('disabled')
+        $('.btn-sm').attr('disabled', false)
       } else {
-        $('.btn-sm').addClass('disabled')
+        $('.btn-sm').attr('disabled', true);
       }
     }
 

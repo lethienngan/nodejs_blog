@@ -3,7 +3,7 @@ const { mongooseToObject } = require('../../ulti/mongoose');
 const { multipleMongooseToObject } = require('../../ulti/mongoose');
 
 class CoursesController {
-    //[GET] /courses.:slug
+    //[GET] /courses/:slug
     show(req, res, next) {
         Course.findOne({ slug: req.params.slug })
             .then(course => {
