@@ -21,34 +21,11 @@ app.use(methodOverride('_method'));
 // Middleware Custom Middleware - sort
 app.use(SortMiddleware)
 //Template Engine - Rendering engine setup - Express Handlebars
-app.engine('.hbs', handlebars({
-    extname: '.hbs',
-    helpers: {
-        sum: (a, b) => a + b,
-        sortable: (column, sort) => {
-            //Check type of Sort by compare "column" name
-            const sortType = (column === sort.column) ? sort.type : 'default'
-
-            const iconTypes = {
-                default: 'oi oi-elevator',
-                asc: 'oi oi-sort-ascending',
-                desc: 'oi oi-sort-descending',
-            }
-            const types = {
-                default: 'desc',
-                asc: 'desc',
-                desc: 'asc',
-            }
-
-            const icon = iconTypes[sortType]
-            const type = types[sortType]
-
-            return `<a href="?_sort&column=${column}&type=${type}">
-            <span class="${icon}"></span>
-            </a>`;
-        }
-    }
-})
+app.engine('.hbs',
+    handlebars({
+        extname: '.hbs',
+        helpers: require('./helpers/handlebars'),
+    })
 );
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'resources/views'));

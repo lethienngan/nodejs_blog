@@ -28,7 +28,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "mongoose-delete": "^0.5.3"
+    "mongoose-delete": "^0.5.3",
+    "mongoose-sequence": "^5.3.1"
   },
   "devDependencies": {
     "express-handlebars": "^5.3.2",

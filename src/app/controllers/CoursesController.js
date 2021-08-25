@@ -20,16 +20,22 @@ class CoursesController {
     }
     // [POST] /courses/store
     store(req, res, next) {
-        //parse req.body to object model - formData  
-        const formData = new Course(req.body);
-
-        //save() to DB & redirect to home page
-        formData.save()
-            .then(() => res.redirect('/me/stored/courses'))
-            .catch(err => {
-                console.log(err);
-            })
-
+        const course = new Course(req.body)
+                course
+                    .save()
+                    .then(() => res.redirect('/me/stored/courses'))
+                    .catch(next);
+            
+        // Course.findOne({})
+        //     .sort({ _id: 'desc' })
+        //     .then(latestCourse => {
+        //         req.body._id = latestCourse ? (latestCourse._id+1) : 0;
+        //         const course = new Course(req.body);
+        //         course
+        //             .save()
+        //             .then(() => res.redirect('/me/stored/courses'))
+        //             .catch(next);
+        //     })
     }
     // [GET] /courses/:id/edit
     edit(req, res, next) {
@@ -69,7 +75,7 @@ class CoursesController {
     handleFormActions(req, res, next) {
         switch (req.body.action) {
             case 'delete':
-                Course.delete({ _id: {$in: req.body.courseIDs}})
+                Course.delete({ _id: { $in: req.body.courseIDs } })
                     .then(() => res.redirect('back'))
                     .catch(next);
                 break;
