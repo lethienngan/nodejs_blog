@@ -13,9 +13,9 @@ class SiteController {
             .catch(next);
     }
 
-    //[GET] /search
-    search(req, res) {
-        res.render('search');
+    //[GET] /login
+    login(req, res) {
+        res.render('login');
     }
 
     //[GET] /:anything differ with /path
